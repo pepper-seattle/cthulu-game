@@ -1,0 +1,35 @@
+{
+  "alphabet" : ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
+  "wordsToGuessLong": [
+    "YogSothoth",
+    "DunwichHoror",
+    "Azathoth",
+    "Nightgaunt",
+    "Necronomicon",
+    "Nyarlathotep",
+    "RhanTegoth",
+    "Zvilpogghua",
+    "Succubus",
+    "Shantak",
+    "Shoggoth",
+    "Ghatanothoa",
+    "Nodens",
+    "Shaggai",
+    "Dagon",
+    "Gobogeg",
+    "Hydra",
+    "Yig",
+    "Yuggoth",
+    "Bokrug"
+  ],
+  "wordsToGuessShort": [
+    "Nodens",
+    "Shaggai",
+    "Dagon",
+    "Gobogeg",
+    "Hydra",
+    "Yig",
+    "Yuggoth",
+    "Bokrug"
+  ]
+}
