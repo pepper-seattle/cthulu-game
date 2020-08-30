@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 
 const buttonSize = '50px';
-let isButtonDisabled = false;
 
 const getStyles = {
   charButton: {
-    backgroundColor: isButtonDisabled === 'selected' ? '#ff0000' : '#fff',
+    backgroundColor: '#fff',
     border: '1px solid #000',
     borderRadius: '6px',
     color: '#222',
@@ -32,17 +31,19 @@ const getStyles = {
   },
 };
 
-const LetterButtons = ({classes, isDisabled, letterArray, onClick}) => {
+export const LetterButtons = ({classes, letterArray, onClick}) => {
   const {charButton, letterPanelBody} = classes;
-  let letterButtons = [];
-  
-  letterArray.forEach(function(char, index) {
-    letterButtons.push(<button className={charButton} disabled={isDisabled} key={index} onClick={() => onClick(char)} >{char}</button>)
-  })
 
   return (
     <div className={letterPanelBody} >
-      {letterButtons}
+      {letterArray.map((char, index) => [
+          <button 
+            className={charButton}
+            key={index}
+            onClick={() => {onClick(char, index)}}
+          >{char}</button>
+        ]
+      )}
     </div>
   )
 }

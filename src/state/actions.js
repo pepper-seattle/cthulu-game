@@ -2,15 +2,7 @@ import {GUESS_COUNT_INCREASE, SET_WORD_TO_GUESS, START_GAME, SET_DISPLAY_VALUES}
 import store from '../store';
 
 export const increaseGuessCount = () => {
-  const {guessCount} = store.getState().cthuluReducer;
-  console.log ("guessCount ", guessCount);
-  let increased = guessCount + 1;
-  console.log("increase guess count ", increased);
-  
-  return {
-    type: GUESS_COUNT_INCREASE, 
-    payload: increased,
-  }
+  return {type: GUESS_COUNT_INCREASE}
 };
 
 export const setWordToGuess = word => {
@@ -30,10 +22,12 @@ export const setWordToGuess = word => {
   }
 };
 
-export const setDisplay = displayValues => ({
+export const setDisplay = displayValues => {
+  return {
     type: SET_DISPLAY_VALUES,
-    payload: displayValues,
-  });
+    payload: {displayValues},
+  }
+};
 
 export const startNewGame = () => {
   return {type: START_GAME}

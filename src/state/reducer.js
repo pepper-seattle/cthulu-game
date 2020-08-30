@@ -17,14 +17,14 @@ export default function cthuluReducer(state = DEFAULT_STATE, action) {
     case GUESS_COUNT_INCREASE:
       return {
         ...state,
-        guessCount: action.payload,
-      }
+        guessCount: state.guessCount + 1,
+      };
 
     case SET_DISPLAY_VALUES:
       return {
         ...state,
-        displayValues: action.payload,
-      }
+        displayValues: action.payload.displayValues,
+      };
 
     case SET_WORD_TO_GUESS:
       return {
