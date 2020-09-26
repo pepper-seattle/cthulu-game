@@ -1,3 +1,22 @@
+## Cthuluman
+
+Welcome to hacktober 2020! 
+
+This year is just as dark as this game you've found. Cthuluman is a take on the classic hangman game you played before we all had tiny computers in our pockets. Guess letters until you have filled out the blank spaces below the spooky picture of Cthullu. Credit to [ANDRÉE WALLIN](https://andreewallin.com/Misc-Client-Work) for the picture which I will remove the second he asks.
+
+This version of the game is imperfect on purpose to provide you all the opportunity to fix broken code, challenge design decisions, and go where many devs have gone before, but maybe you haven't yet. You'll find a number of tasks outlined in the repo needing someone to take them on, but I will also be accepting things that aren't listed under [Issues](https://github.com/pepper-seattle/cthulu-game/issues).
+
+### PR Submission
+
+If you are taking on one of the tasks or making your own unique PRs please keep the following in mind:
+
+- There is no offensive language or imagery allowed
+- Code has been well tested by you prior to submission
+  - Hint: now is a good time to practice unit testing!
+- Your last commit should include your name added to the contributors file
+
+_________________________________________________________________________________________________________
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
