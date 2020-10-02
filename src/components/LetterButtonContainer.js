@@ -1,34 +1,47 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import store from '../store';
 
 import data from '../data/data.json'
-import {increaseGuessCount, setDisplay} from '../state/actions';
+import {increaseGuessCount, guessLetter, setDisplay} from '../state/actions';
 import LetterButtons from './LetterButtons';
 
 
 export const LetterButtonContainer = (props) => {
-  const {displayValues, wordToGuess} = props;
+  const {displayValues, guessedLetters, wordToGuess} = props;
   const letterArray = data.alphabet;
   
   const clickHandler = (char) => {
-    store.dispatch(increaseGuessCount());
+    props.guessLetter(char);
+    props.increaseGuessCount();
 
     // If a correct guess is made replace intial display values with the guessed character
     let matches = wordToGuess.map((w, i) => w === char ? i : '').filter(String);
     if(matches.length > 0) {
       let newDisplay = displayValues.slice();
       matches.forEach(e => newDisplay.splice(e, 1, char));
-      store.dispatch(setDisplay(newDisplay));
+      props.setDisplay(newDisplay);
     }
   };
   
- return <LetterButtons letterArray={letterArray} onClick={clickHandler} />
+  return (
+    <LetterButtons
+      guessedLetters={guessedLetters}
+      letterArray={letterArray}
+      onClick={clickHandler}
+    />
+  );
 };
 
 const mapStateToProps = state => ({
   displayValues: state.cthuluReducer.displayValues,
+  guessedLetters: state.cthuluReducer.guessedLetters,
   wordToGuess: state.cthuluReducer.wordToGuess,
 });
 
-export default connect(mapStateToProps)(LetterButtonContainer);
+const mapDispatchToProps = {
+  guessLetter,
+  increaseGuessCount,
+  setDisplay,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LetterButtonContainer);
