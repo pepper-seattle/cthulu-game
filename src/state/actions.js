@@ -1,8 +1,18 @@
-import {GUESS_COUNT_INCREASE, SET_WORD_TO_GUESS, START_GAME, SET_DISPLAY_VALUES} from './constants';
+import {
+  GUESS_COUNT_INCREASE,
+  GUESS_LETTER,
+  SET_WORD_TO_GUESS,
+  START_GAME,
+  SET_DISPLAY_VALUES
+} from './constants';
 import store from '../store';
 
 export const increaseGuessCount = () => {
   return {type: GUESS_COUNT_INCREASE}
+};
+
+export const guessLetter = letter => {
+  return {type: GUESS_LETTER, payload: {letter}};
 };
 
 export const setWordToGuess = word => {
