@@ -8,7 +8,7 @@ import {
 
 export const DEFAULT_STATE = {
   displayValues: [],
-  gameStarted: false,
+  isGameStarted: false,
   guessCount: 0,
   guessedLetters: [],
   wordToGuess: [],
@@ -45,7 +45,7 @@ export default function cthuluReducer(state = DEFAULT_STATE, action) {
     case START_GAME:
       return {
         ...state,
-        gameStarted: true,
+        isGameStarted: true,
       };
 
     default:

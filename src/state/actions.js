@@ -5,7 +5,7 @@ import {
   START_GAME,
   SET_DISPLAY_VALUES
 } from './constants';
-import store from '../store';
+import store from './store';
 
 export const increaseGuessCount = () => {
   return {type: GUESS_COUNT_INCREASE}
