@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import injectSheet from 'react-jss';
 
 import cthulhu_img from './cthulhu_img.jpg';
 import LetterButtonContainer from './components/LetterButtonContainer';
 import GuessBoxesContainer from './components/GuessBoxesContainer';
+import ImageCoverContainer from './components/ImageCoverContainer';
 
 import data from './data/data.json';
 import {setWordToGuess} from './state/actions';
@@ -18,10 +19,10 @@ const getStyles = {
     color: '#dfdfdf',
     display: 'flex',
     flexDirection: 'column',
-    height: '100vh',
+    height: '100%',
     width: '100%',
     margin: 0,
-    padding: 0,
+    padding: '24px 0',
     textAlign: 'center',
   },
   body: {
@@ -32,25 +33,27 @@ const getStyles = {
   },
   guessBody: {
     alignSelf: 'flex-end',
-    height: '100px',
+    height: 100,
   },
   image: {
-    maxWidth: '75%',
+    width: '100%',
   },
   imageBody: {
-    marginBottom: '24px',
+    position: 'relative',
+    maxWidth: '75%',
+    marginBottom: 24,
   },
   subTitle: {
-    fontSize: '15px',
+    fontSize: 15,
     margin: '0 0 24px',
   },
   title: {
-    fontSize: '65px',
+    fontSize: 65,
     margin: 0,
   },
   '@media (max-width: 500px)': {
     guessBody: {
-      height: '50px',
+      height: 50,
     },
   }
 };
@@ -67,13 +70,13 @@ export class App extends React.Component {
     return (
       <div className={app}>
         <h1 className={title}>Cthuluman</h1>
-        <h2 className={subTitle}>Can you guess its name before the end?</h2>
+        <h2 className={subTitle}>Can you guess it's name before it's revealed?</h2>
         <div className={body}>
           <div className={imageBody}>
-            {/* TODO: REPLACE WITH COVERED IMAGE CONTAINER */}
+            <ImageCoverContainer />
             <img className={image} alt="cthulu" src={cthulhu_img} />
           </div>
-          {this.props.isGameStarted ? 
+          {this.props.isGameStarted ? (
             <div>
               <div className={guessBody}>
                 <GuessBoxesContainer />
@@ -82,7 +85,9 @@ export class App extends React.Component {
                 <LetterButtonContainer />
               </div> 
             </div>
-            : <NewGameButton />}
+          ) : (
+            <NewGameButton />
+          )}
         </div>
       </div>
     );
