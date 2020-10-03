@@ -25,19 +25,18 @@ const styles = {
   }
 };
 
-const ImageCover = props => {
-  const {classes, guessedLetters, wordToGuess} = props;
+const ALLOWED_GUESSES = [1, 2, 3, 4, 5];
 
-  const uniqueLetters = wordToGuess.reduce((uniques, letter) => {
-    return uniques.includes(letter) ? uniques : [...uniques, letter];
-  }, []);
+const ImageCover = props => {
+  const {classes, guessedLetters} = props;
+  const guessCount = guessedLetters.length;
   
-  const hidden = letter => guessedLetters.includes(letter) ? classes.hidden : '';
+  const hidden = guessNumber => guessNumber <= guessCount ? classes.hidden : '';
 
   return (
     <div className={classes.root}>
-      {uniqueLetters.map(letter => (
-        <div className={hidden(letter)}></div>
+      {ALLOWED_GUESSES.map(guessNumber => (
+        <div className={hidden(guessNumber)}></div>
       ))}      
     </div>
   );
@@ -46,7 +45,6 @@ const ImageCover = props => {
 ImageCover.propTypes = {
   classes: PropTypes.object,
   guessedLetters: PropTypes.arrayOf(PropTypes.string),
-  wordToGuess: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default injectSheet(styles)(ImageCover);

@@ -70,7 +70,7 @@ export class App extends React.Component {
     return (
       <div className={app}>
         <h1 className={title}>Cthuluman</h1>
-        <h2 className={subTitle}>Can you guess its name before the end?</h2>
+        <h2 className={subTitle}>Can you guess it's name before it's revealed?</h2>
         <div className={body}>
           <div className={imageBody}>
             <ImageCoverContainer />

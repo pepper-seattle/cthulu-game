@@ -7,12 +7,10 @@ const ImageCoverContainer = props => <ImageCover {...props} />;
 
 ImageCoverContainer.propTypes = {
   guessedLetters: PropTypes.arrayOf(PropTypes.string),
-  wordToGuess: PropTypes.arrayOf(PropTypes.string),
 };
 
 const mapStateToProps = state => ({
   guessedLetters: state.cthuluReducer.guessedLetters,
-  wordToGuess: state.cthuluReducer.wordToGuess,
 });
 
 export default connect(mapStateToProps)(ImageCoverContainer);
