@@ -23,7 +23,7 @@ const App = () => {
   useEffect(() => {
     const wordToGuess = selectWordToGuess(data, window.innerWidth)
     dispatch( setWordToGuess(wordToGuess) )
-  }, [])
+  }, [dispatch])
 
   return (
     <El.AppContainer className='animated fadeIn'>
