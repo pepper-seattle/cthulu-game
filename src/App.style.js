@@ -15,7 +15,12 @@ export const AppContainer = styled.div`
   align-items: center;
   background-image: url(${cthulhu_img});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
+
+  @media( max-width: ${props => props.theme.screen.xs} ) {
+    background-position: top;
+  }
 `
 
 export const AppTitle = styled.h1`
