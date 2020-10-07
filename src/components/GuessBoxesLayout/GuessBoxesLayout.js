@@ -1,5 +1,5 @@
 import React from 'react';
-import LetterBox from '../LetterBox';
+import LetterBox from '../LetterBox/LetterBox';
 /** style */
 import * as El from './GuessBoxesLayout.style'
 
