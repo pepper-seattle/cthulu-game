@@ -6,25 +6,11 @@ export const Breakpoints = {
 }
 
 const Colors = {
-  primary: '#c089A8',
-  primary_light: '#CC91B2',
-  primary_dark: '#805B6F',
-  secondary: '#f8cbAe',
-  secondary_light: '#DEB69B',
-  secondary_dark: '#B89781',
-  gray: '#dfe6e9',
-  gray_15: '#bdc3c7',
-  gray_50: '#636e72',
-  light: '#ffffff',
-  dark: '#2c2b2b',
-  facebook: '#3b5998',
-  red: '#d63031'
+  primary: '#222222',
+  secondary: '#ff4655'
 }
 
 const FontSize = {
-  10: '10px',
-  12: '12px',
-  14: '14px',
   16: '16px',
   18: '18px',
   45: '45px',

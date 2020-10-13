@@ -8,7 +8,7 @@ import * as El from './App.style'
 /** components */
 import LetterButtonContainer from './components/LetterButtonContainer'
 import GuessBoxesContainer from './components/GuessBoxesContainer'
-import NewGameButton from './components/NewGameButton'
+import NewGameButton from './components/NewGameButton/NewGameButton'
 
 import data from './data/data.json'
 /** actions  */
