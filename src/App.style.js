@@ -26,11 +26,19 @@ export const AppContainer = styled.div`
 export const AppTitle = styled.h1`
   font-size: ${props => props.theme.typography.fontSize[65]};
   margin: 0;
+
+  @media( max-width: ${props => props.theme.screen.xs} ) {
+    font-size: ${props => props.theme.typography.fontSize[45]};
+  }
 `
 
 export const AppSubTitle = styled.h2`
   font-size: ${props => props.theme.typography.fontSize[18]};
   margin: 0 0 24px;
+
+  @media( max-width: ${props => props.theme.screen.xs} ) {
+    font-size: ${props => props.theme.typography.fontSize[16]};
+  }
 `
 
 export const AppBodyContainer = styled.div`
