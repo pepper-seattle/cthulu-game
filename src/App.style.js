@@ -41,6 +41,19 @@ export const AppSubTitle = styled.h2`
   }
 `
 
+export const AppChancesRemaining = styled.h3`
+  margin: 0;
+  font-size: ${props => props.theme.typography.fontSize[16]};
+
+  > b {
+    font-weight: ${props => props.theme.typography.fontWeight.bold};
+    color: ${props => props.theme.color.secondary};
+    background-color: ${props => props.theme.color.primary};
+    padding: 5px;
+    border-radius: 50%;
+  }
+`
+
 export const AppBodyContainer = styled.div`
   display: flex;
   align-items: center;
