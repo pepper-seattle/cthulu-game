@@ -24,6 +24,7 @@ const App = () => {
 
   useEffect(() => {
     startGame()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -34,7 +35,8 @@ const App = () => {
     /** call end game method */
     if (isGameStarted && chances === 1) gameOverAction()
     /** check arrays */
-    if (isGameStarted) console.log('< IS EQUAL ? > ', compareArrays(displayValues, wordToGuess) )
+    if (isGameStarted) compareArrays(displayValues, wordToGuess)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayValues, wordToGuess, guessCount])
 
   const compareArrays = (arrayToComplete, arrayAnswer) => {
@@ -60,12 +62,11 @@ const App = () => {
   }
 
   const gameWinAction = () => {
-    alert('< YOU WIIIN, GET MY PERK!! >')
-    console.log('< WINNER > https://www.google.com/search?q=cthulhu')
+    alert('< YOU WOON, GET MY PERK!! >')
 
     const wordToSearch = displayValues.reduce((acc, cur) => acc + cur, '')
 
-    window.open(`https://www.google.com/search?q=${wordToSearch}`)
+    window.open(`https://www.google.com/search?q=${wordToSearch} cthulhu`)
     dispatch( resetGame() )
     startGame()
   }
