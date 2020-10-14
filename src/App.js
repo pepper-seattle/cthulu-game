@@ -40,7 +40,7 @@ const App = () => {
   const compareArrays = (arrayToComplete, arrayAnswer) => {
     const array1 = arrayToComplete.toString()
     const array2 = arrayAnswer.toString()
-    console.log('< VALUES > ', array1, array2, array1===array2)
+    console.log('< VALUES > ', array1, array2, array1===array2, arrayAnswer)
 
     return array1 === array2 ? gameWinAction() : false
   }
@@ -59,7 +59,16 @@ const App = () => {
     startGame()
   }
 
-  const gameWinAction = () => console.log('< WINNER > https://www.google.com/search?q=cthulhu')
+  const gameWinAction = () => {
+    alert('< YOU WIIIN, GET MY PERK!! >')
+    console.log('< WINNER > https://www.google.com/search?q=cthulhu')
+
+    const wordToSearch = displayValues.reduce((acc, cur) => acc + cur, '')
+
+    window.open(`https://www.google.com/search?q=${wordToSearch}`)
+    dispatch( resetGame() )
+    startGame()
+  }
 
   return (
     <El.AppContainer className='animated fadeIn'>
