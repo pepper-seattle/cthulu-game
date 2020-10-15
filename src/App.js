@@ -63,7 +63,7 @@ const App = () => {
     const wordToGuess = selectWordToGuess(data, window.innerWidth)
     dispatch( setWordToGuess(wordToGuess) )
     /** create chances */
-    setChances((Number(wordToGuess.length) * 2 < 26 )? wordToGuess.length * 2  : 25)
+    setChances((Number(wordToGuess.length) * 1.5 < 26 ) ? Math.floor(wordToGuess.length * 1.5)  : 23)
   }
 
   const gameOverAction = () => {
