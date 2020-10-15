@@ -45,7 +45,7 @@ const App = () => {
       /** decrease chances */
       console.log('< remove a chance > ' )
       setRemoveChance(true)
-      setChances(chances - 1)
+      if (chances > 0) setChances(chances - 1)
       setTimeout(() => {
         setRemoveChance(false)
         /** call end game method */
