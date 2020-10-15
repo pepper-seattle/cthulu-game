@@ -26,7 +26,7 @@ export default function cthuluReducer(state = DEFAULT_STATE, action) {
     case GUESS_LETTER:
       return {
         ...state,
-        guessedLetters: [...state.guessedLetters, action.payload.letter],
+        guessedLetters: [action.payload.letter, ...state.guessedLetters],
       };
 
     case SET_DISPLAY_VALUES:

@@ -18,9 +18,10 @@ import { selectWordToGuess } from './helpers/utils'
 
 const App = () => {
   const dispatch = useDispatch()
-  const { isGameStarted, displayValues, wordToGuess, guessCount } = useSelector(state => state.cthuluReducer)
+  const { isGameStarted, displayValues, wordToGuess, guessCount, guessedLetters } = useSelector(state => state.cthuluReducer)
 
   const [chances, setChances] = useState(0)
+  const [removeChance, setRemoveChance] = useState(false)
 
   useEffect(() => {
     startGame()
@@ -28,12 +29,7 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    console.log('< COUNT > ', guessCount)
-
-    /** decrease chances */
-    if (guessCount > 0) setChances(chances - 1)
-    /** call end game method */
-    if (isGameStarted && chances === 1) gameOverAction()
+    console.log('< COUNT > ', guessCount, guessedLetters)
     /** check arrays */
     if (isGameStarted) compareArrays(displayValues, wordToGuess)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -42,8 +38,23 @@ const App = () => {
   const compareArrays = (arrayToComplete, arrayAnswer) => {
     const array1 = arrayToComplete.toString()
     const array2 = arrayAnswer.toString()
-    console.log('< VALUES > ', array1, array2, array1===array2, arrayAnswer)
 
+    const lastLetterAdded = guessedLetters[0]
+    /** if last letter is wrong, remove a chance */
+    if ( !arrayAnswer.includes(lastLetterAdded) ) {
+      /** decrease chances */
+      console.log('< remove a chance > ' )
+      setRemoveChance(true)
+      setChances(chances - 1)
+      setTimeout(() => {
+        setRemoveChance(false)
+        /** call end game method */
+        if (isGameStarted && chances === 1) gameOverAction()
+      }, 1000)
+    }
+
+
+    console.log('< VALUES > ', array1, array2, array1===array2, arrayToComplete, arrayAnswer)
     return array1 === array2 ? gameWinAction() : false
   }
 
@@ -76,7 +87,9 @@ const App = () => {
       <El.AppTitle>Cthuluman</El.AppTitle>
       <El.AppSubTitle>Can you guess its name before the end?</El.AppSubTitle>
       {isGameStarted && (
-        <El.AppChancesRemaining className='animated fadeIn'>Chances remaining: <b>{chances}</b></El.AppChancesRemaining>
+        <El.AppChancesRemaining className='animated fadeIn' isActive={removeChance}>
+          Chances remaining: <b>{chances}</b>
+        </El.AppChancesRemaining>
       )}
 
       <El.AppBodyContainer>
