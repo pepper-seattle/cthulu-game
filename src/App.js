@@ -50,7 +50,7 @@ const App = () => {
         setRemoveChance(false)
         /** call end game method */
         if (isGameStarted && chances === 1) gameOverAction()
-      }, 1000)
+      }, 500)
     }
 
 
@@ -77,7 +77,7 @@ const App = () => {
 
     const wordToSearch = displayValues.reduce((acc, cur) => acc + cur, '')
 
-    window.open(`https://www.google.com/search?q=${wordToSearch} cthulhu`)
+    window.open(`https://en.wikipedia.org/wiki/${wordToSearch}`)
     dispatch( resetGame() )
     startGame()
   }
@@ -88,7 +88,7 @@ const App = () => {
       <El.AppSubTitle>Can you guess its name before the end?</El.AppSubTitle>
       {isGameStarted && (
         <El.AppChancesRemaining className='animated fadeIn' isActive={removeChance}>
-          Chances remaining: <b>{chances}</b>
+          <b>{chances}</b>
         </El.AppChancesRemaining>
       )}
 

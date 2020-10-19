@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 /** image */
 import cthulhu_img from './assets/images/cthulhu_img.jpg'
@@ -44,9 +44,10 @@ export const AppSubTitle = styled.h2`
 
 export const AppChancesRemaining = styled.h3`
   margin: 0;
-  font-size: ${props => props.theme.typography.fontSize[16]};
+  font-size: ${props => props.theme.typography.fontSize[34]};
   display: flex;
   flex-flow: row wrap;
+  position: relative;
 
   > b {
     font-weight: ${props => props.theme.typography.fontWeight.bold};
@@ -54,6 +55,8 @@ export const AppChancesRemaining = styled.h3`
     background-color: ${props => props.theme.color.primary};
     padding: 5px;
     border-radius: 50%;
+    min-width: 40px;
+    text-align: center;
 
     @media( max-width: ${props => props.theme.screen.xs} ) {
       padding-top: 0px;
@@ -67,17 +70,35 @@ export const AppChancesRemaining = styled.h3`
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    height: 20px;
-    width: 50px;
-    transition-property: opacity, top;
-    transition-duration: 0.5s;
-    transition-delay: 0.2s;
-    position: relative;
-    top: ${props => props.isActive ? -5 : 10}px;
+    height: 40px;
+    width: 90px;
+    position: absolute;
+    transition-property: opacity, bottom, right;
+
+    ${props => props.isActive && css`
+      animation: skullInDown .5s;
+    `}
+
+
+    @media( max-width: ${props => props.theme.screen.xs} ) {
+      height: 20px;
+      width: 70px;
+    }
+  }
+
+  @keyframes skullInDown {
+    0% {
+      bottom: -5px;
+    }
+    100% {
+      bottom: -30px;
+      opacity: 0;
+    }
   }
 
   @media( max-width: ${props => props.theme.screen.xs} ) {
     margin-bottom: 20px;
+    font-size: ${props => props.theme.typography.fontSize[24]};
   }
 `
 
