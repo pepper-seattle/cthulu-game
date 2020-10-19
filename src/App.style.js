@@ -79,7 +79,6 @@ export const AppChancesRemaining = styled.h3`
       animation: skullInDown .5s;
     `}
 
-
     @media( max-width: ${props => props.theme.screen.xs} ) {
       height: 20px;
       width: 70px;

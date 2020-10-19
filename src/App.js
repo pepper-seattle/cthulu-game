@@ -29,7 +29,7 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    console.log('< COUNT > ', guessCount, guessedLetters)
+    // console.log('< COUNT > ', guessCount, guessedLetters)
     /** check arrays */
     if (isGameStarted) compareArrays(displayValues, wordToGuess)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,7 +43,6 @@ const App = () => {
     /** if last letter is wrong, remove a chance */
     if ( !arrayAnswer.includes(lastLetterAdded) ) {
       /** decrease chances */
-      console.log('< remove a chance > ' )
       setRemoveChance(true)
       if (chances > 0) setChances(chances - 1)
       setTimeout(() => {
@@ -54,7 +53,7 @@ const App = () => {
     }
 
 
-    console.log('< VALUES > ', array1, array2, array1===array2, arrayToComplete, arrayAnswer)
+    // console.log('< VALUES > ', array1, array2, array1===array2, arrayToComplete, arrayAnswer)
     return array1 === array2 ? gameWinAction() : false
   }
 
