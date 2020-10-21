@@ -49,7 +49,7 @@ const App = () => {
         setRemoveChance(false)
         /** call end game method */
         if (isGameStarted && chances === 1) gameOverAction()
-      }, 500)
+      }, 800)
     }
 
 

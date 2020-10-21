@@ -76,7 +76,7 @@ export const AppChancesRemaining = styled.h3`
     transition-property: opacity, bottom, right;
 
     ${props => props.isActive && css`
-      animation: skullInDown .5s;
+      animation: skullInDown .8s;
     `}
 
     @media( max-width: ${props => props.theme.screen.xs} ) {
