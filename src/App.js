@@ -76,7 +76,7 @@ const App = () => {
 
     const wordToSearch = displayValues.reduce((acc, cur) => acc + cur, '')
 
-    window.open(`https://en.wikipedia.org/wiki/${wordToSearch}`)
+    window.open(`https://www.google.com/search?q=${wordToSearch} cthulhu`)
     dispatch( resetGame() )
     startGame()
   }
