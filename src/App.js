@@ -29,7 +29,6 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    // console.log('< COUNT > ', guessCount, guessedLetters)
     /** check arrays */
     if (isGameStarted) compareArrays(displayValues, wordToGuess)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -52,8 +51,6 @@ const App = () => {
       }, 800)
     }
 
-
-    // console.log('< VALUES > ', array1, array2, array1===array2, arrayToComplete, arrayAnswer)
     return array1 === array2 ? gameWinAction() : false
   }
 
