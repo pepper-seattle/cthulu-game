@@ -13,6 +13,8 @@ const Colors = {
 const FontSize = {
   16: '16px',
   18: '18px',
+  24: '24px',
+  34: '34px',
   45: '45px',
   65: '65px'
 }

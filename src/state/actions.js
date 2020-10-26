@@ -3,7 +3,8 @@ import {
   GUESS_LETTER,
   SET_WORD_TO_GUESS,
   START_GAME,
-  SET_DISPLAY_VALUES
+  SET_DISPLAY_VALUES,
+  RESET_GAME
 } from './constants';
 import store from './store';
 
@@ -42,3 +43,7 @@ export const setDisplay = displayValues => {
 export const startNewGame = () => {
   return {type: START_GAME}
 };
+
+export const resetGame = () => (
+  {type: RESET_GAME}
+)

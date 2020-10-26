@@ -4,6 +4,7 @@ import {
   SET_DISPLAY_VALUES,
   SET_WORD_TO_GUESS,
   START_GAME,
+  RESET_GAME
   } from './constants';
 
 export const DEFAULT_STATE = {
@@ -25,7 +26,7 @@ export default function cthuluReducer(state = DEFAULT_STATE, action) {
     case GUESS_LETTER:
       return {
         ...state,
-        guessedLetters: [...state.guessedLetters, action.payload.letter],
+        guessedLetters: [action.payload.letter, ...state.guessedLetters],
       };
 
     case SET_DISPLAY_VALUES:
@@ -47,6 +48,15 @@ export default function cthuluReducer(state = DEFAULT_STATE, action) {
         ...state,
         isGameStarted: true,
       };
+    
+    case RESET_GAME:
+      return {
+        displayValues: [],
+        isGameStarted: false,
+        guessCount: 0,
+        guessedLetters: [],
+        wordToGuess: [],
+      }
 
     default:
       return state;
